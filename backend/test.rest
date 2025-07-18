@@ -1,0 +1,201 @@
+# GET  http://127.0.0.1:8000/signup/
+# Content-Type: application/json
+
+# { "username":"nesser" , "password": "Passs23!" ,"email" :"she22@gmail.com"}
+
+# POST  http://127.0.0.1:8000/signup/
+# Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="username"
+
+# tyler
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="password"
+
+# tyler123
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="email"
+
+# tyler@gmail.com
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="first_name"
+
+# Tyler
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="last_name"
+
+# Bartlett
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="Profile_picture"; filename="TylerBartlett.jpeg"
+# Content-Type: image/jpeg 
+
+# < .\media2\TylerBartlett.jpeg
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+# POST  http://127.0.0.1:8000/dj-rest-auth/login/
+# Content-Type: application/json
+# # Authorization: Token 3c15ddd0f4a9dd62e97ff8aac5b16a3aadeee7f6
+
+# { "username":"fatima123" , "password": "fatima123" }
+
+// get profile data
+# GET http://127.0.0.1:8000/user_profile/
+# Authorization: Token a10253ce3995ea4c2094c6652dc7881b1de62c51	
+
+//get trees of user
+# GET http://127.0.0.1:8000/user_trees/
+# Authorization: Token edd9496c78aa05c1f7208965c13bbba4d4fe7fc0	
+
+
+//get tree count in descending order of all trees
+# GET http://127.0.0.1:8000/leaderboard/
+# Authorization: Token 8fa5377ddfd514209c3a51f633bafc2bcee69b0a	
+
+# GET http://127.0.0.1:8000/test_token
+# Content-Type: application/json
+# Authorization: Token 3c15ddd0f4a9dd62e97ff8aac5b16a3aadeee7f6
+
+
+# mehak
+# POST  http://127.0.0.1:8000/dj-rest-auth/registration/
+# Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="username"
+
+# test26
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="password1"
+
+# jellybean22
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="password2"
+
+# jellybean22
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="email"
+
+# test26@gmail.com
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="first_name"
+
+# test26
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="last_name"
+
+# user
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="profile_picture"; filename="ewwbs-01.png"
+# Content-Type: image/png
+
+# < .\media2\ewwbs-01.png
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+# POST  http://127.0.0.1:8000/dj-rest-auth/login/
+# Content-Type: application/json
+
+# { "username":"test26" , "password": "jellybean22" }
+
+// get profile data
+# GET http://127.0.0.1:8000/user_profile/
+# Authorization: Token 7bc722d3d17125a7c330f642050dbe8243df5898
+
+# GET http://127.0.0.1:8000/test_token
+# Content-Type: application/json
+# Authorization: Token 7bc722d3d17125a7c330f642050dbe8243df5898
+
+//get trees of user
+# GET http://127.0.0.1:8000/user_trees/
+# Authorization: Token 7bc722d3d17125a7c330f642050dbe8243df5898	
+
+GET http://127.0.0.1:8000/community_trees/1/
+
+# { "id":"1" }
+
+GET http://127.0.0.1:8000/community_joined/
+Authorization: d461fdd28045bf834ab5902f3a7c74a1cf97c81c	
+
+
+
+// get a list of all communities
+# GET http://127.0.0.1:8000/communities/
+# Authorization: Token 48a41af9d93b9cb569ccb0501b7adaded8e8c706
+
+
+// Get a specific community
+# GET http://127.0.0.1:8000/communities/1
+# Authorization: Token 48a41af9d93b9cb569ccb0501b7adaded8e8c706
+
+
+// user create community
+# POST http://127.0.0.1:8000/communities/
+# Content-Type: application/json
+# Authorization: Token 7bc722d3d17125a7c330f642050dbe8243df5898
+
+# {"name": "Community1", "description": "A community to plant trees!"}
+
+
+
+// user joins a community
+// That 1 is the id of the community the user wants to join
+// The view captures this using *args
+# PUT http://127.0.0.1:8000/communities/1/join/
+# Authorization: Token 48a41af9d93b9cb569ccb0501b7adaded8e8c706
+
+# POST http://127.0.0.1:8000/dj-rest-auth/logout/
+# Authorization: Token 7bc722d3d17125a7c330f642050dbe8243df5898
+
+# PUT http://127.0.0.1:8000/communities/1/leave/
+# Authorization: Token 48a41af9d93b9cb569ccb0501b7adaded8e8c706
+
+
+// Creating a community with an image
+# POST  http://127.0.0.1:8000/communities/
+# Authorization: TOKEN 48a41af9d93b9cb569ccb0501b7adaded8e8c706
+# Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="name"
+
+# Community4
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="description"
+
+# Here is another community to plant trees!
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="community_picture"; filename="crontab_script.png"
+# Content-Type: image/png
+
+# < .\media2\crontab_script.png
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+
+
+
+# POST  http://127.0.0.1:8000/trees/
+# Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+# Authorization: Token edd9496c78aa05c1f7208965c13bbba4d4fe7fc0	
+
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="name"
+
+# mehakplant
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="latitude"
+
+# 23.33
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="longitude"
+
+# 784.3
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="picture"; filename="TylerBartlett.jpeg"
+# Content-Type: image/jpeg 
+
+# < .\media2\TylerBartlett.jpeg
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+// get a list posts
+GET http://127.0.0.1:8000/posts/
+Authorization: Token f33aa058158b22960c6fb50cf63e363f7fa5ae1c

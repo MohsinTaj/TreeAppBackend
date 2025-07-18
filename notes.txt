@@ -1,0 +1,11 @@
+pip install django-filter
+
+Add models.py and views.py to git
+
+After pull run migrations
+
+Also added Community Serializer 
+
+pip install 'dj-rest-auth[with_social]'
+
+Changed settings.py
