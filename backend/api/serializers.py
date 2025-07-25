@@ -161,3 +161,33 @@ class CustomRegistrationSerializer(RegisterSerializer):
             profile.save()
 
         return user
+    
+
+class MiniUserSerializer(serializers.ModelSerializer):
+    profile_picture = serializers.SerializerMethodField()
+
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'first_name', 'last_name', 'profile_picture']
+
+    def get_profile_picture(self, obj):
+        try:
+            return obj.profile.profile_picture.url if obj.profile.profile_picture else None
+        except Profile.DoesNotExist:
+            return None
+
+class CommunityDetailSerializer(serializers.ModelSerializer):
+    created_by = MiniUserSerializer()
+
+    class Meta:
+        model = Community
+        fields = ['id', 'name', 'description', 'community_picture', 'created_by']
+
+class TreeWithDetailsSerializer(serializers.ModelSerializer):
+    user = MiniUserSerializer()
+    community = CommunityDetailSerializer(required=False)
+
+    class Meta:
+        model = Trees
+        fields = ['id', 'name', 'picture', 'latitude', 'longitude', 'creat_date', 'user', 'community']
+   

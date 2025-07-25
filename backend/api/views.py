@@ -29,6 +29,13 @@ logger = logging.getLogger(__name__)
 #     queryset =Picture.objects.all()
 #     serializer_class = PictureSerializer
 
+@api_view(['GET'])
+# # @permission_classes([IsAuthenticated])  ← removed  ← removed
+def all_trees_with_details(request):
+    trees = Trees.objects.select_related('user__profile', 'community__created_by__profile').all()
+    serializer = TreeWithDetailsSerializer(trees, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
 @api_view(['POST'])
 @authentication_classes([])
 @permission_classes([])

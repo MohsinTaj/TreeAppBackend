@@ -19,6 +19,7 @@ urlpatterns = [
     path('trees/<int:pk>/',TreeDetailView.as_view(), name ='tree-detail'),
     path('user_profile/',get_user_profile, name ='user-profile'),
     path('user_trees/',get_user_trees, name ='user-trees'),
+    path('api/trees/all/', all_trees_with_details, name='all-trees'),
     path('community_trees/<int:comm_id>/',get_Community_trees, name ='community-trees'),
     path('community_joined/',get_user_communities, name ='user-community'),
     path('user_trees_count/',get_user_trees_count, name ='user-trees_count'),
@@ -44,7 +45,7 @@ urlpatterns = [
     path('dj-rest-auth/account-confirm-email/<str:key>/', VerifyEmailView.as_view(), name='account_email_verification_sent'),
     path('email-verification-success/', TemplateView.as_view(template_name='account/email_verification_success.html'), name='email-verification-success'),
     path('email-verification-failed/', TemplateView.as_view(template_name='account/email_verification_failed.html'), name='email-verification-failed'),
-    re_path(r'verify-email/(?P<key>[-:\w]+)/$', CustomEmailVerifyView.as_view(), name='account_email_verification'),
+    re_path('verify-email/(?P<key>[-:\w]+)/$', CustomEmailVerifyView.as_view(), name='account_email_verification'),
 
 
     # path('auth/', include('djoser.urls')),
